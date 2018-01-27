@@ -1,6 +1,6 @@
 # earthbuild, by Dokimi
 
-A mod for minetest that adds traditional dirt and vegetation based construction methods which do not require the use of stone or mining.
+A mod for minetest that adds traditional dirt and vegetation based construction methods which do not require the use of quarrying or mining.
 
 License:
 
