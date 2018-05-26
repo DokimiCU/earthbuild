@@ -17,10 +17,10 @@ Textures are licensed under CC BY-SA 3.0 Unported.
 - double amount of thatch made by recipe.
 - Thatch grass recipes.
 - Fixed supported whitewashed earth recipes. 
-- clay pot. 
-- primitive bed. 
+- add clay pot. 
+- add primitive bed. 
 - stopped hearth from destroying blocks when another block is in the way. 
-- mud brick
+- add mud brick
 - remove flammability for wattle and daub 
 - changed rammed earth recipe to avoid conflict with moreblocks 
 - add wattle
@@ -28,3 +28,8 @@ Textures are licensed under CC BY-SA 3.0 Unported.
 - changed recipe for wattle and daub.
 - remove wattle and daub wall register
 - adjust groups
+- add furnace
+- adjust wattle recipe
+- hearth breakable by hand
+- wattle and thatch as fuels
+- adjust whitewash recipe to need a lower ratio of gravel
