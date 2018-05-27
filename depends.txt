@@ -2,3 +2,4 @@ default
 stairs
 walls
 fire
+beds

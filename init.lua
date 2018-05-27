@@ -1,3 +1,12 @@
+-------------------------------------------------------------
+--Do files
+-------------------------------------------------------------
+
+dofile(minetest.get_modpath("earthbuild").."/clay_pot.lua")
+dofile(minetest.get_modpath("earthbuild").."/bed.lua")
+dofile(minetest.get_modpath("earthbuild").."/furnace.lua")
+
+
 ----------------------------------------------------------
 --EARTH AND COB NODES AND CRAFTS
 
@@ -9,18 +18,18 @@ minetest.register_node('earthbuild:rammed_earth', {
 	tiles = {"earthbuild_rammed_earth.png"},
 	paramtype = "light",
 	--drop = "default:dirt",
-	groups = {crumbly = 1, cracky = 3, falling_node = 1},
+	groups = {crumbly = 2, cracky = 3, falling_node = 1},
 	sounds = default.node_sound_dirt_defaults(),
 })
 
 -- adds rammed_earth recipes
 
 minetest.register_craft({
-	output = 'earthbuild:rammed_earth 3',
+	output = 'earthbuild:rammed_earth 1',
 	recipe = {
-		{'default:dirt', 'default:dirt', 'default:dirt'},
-		{'default:dirt', 'default:dirt', 'default:dirt'},
-		{'default:dirt', 'default:dirt', 'default:dirt'},
+		{'default:dirt'},
+		{'default:dirt'},
+		{'default:dirt'},
 	}
 })
 
@@ -34,7 +43,7 @@ minetest.register_node('earthbuild:cob', {
 	tiles = {"earthbuild_cob.png"},
 	paramtype = "light",
 	--drop = "default:dirt",
-	groups = {crumbly = 1, cracky = 3, falling_node = 1},
+	groups = {crumbly = 2, cracky = 3, falling_node = 1},
 	sounds = default.node_sound_dirt_defaults(),
 })
 
@@ -107,15 +116,15 @@ minetest.register_node('earthbuild:supported_rammed_earth', {
 	description = 'Supported Rammed Earth',
 	drawtype = "normal",
 	tiles = {
-		"earthbuild_rammed_earth.png", 
-		"default_wood.png", 
+		"earthbuild_rammed_earth.png",
+		"default_wood.png",
 		"earthbuild_supported_rammed_earth.png",
 		"earthbuild_supported_rammed_earth.png",
 		"earthbuild_supported_rammed_earth.png",
 		"earthbuild_supported_rammed_earth.png"
 },
 	paramtype = "light",
-	groups = {crumbly = 1, cracky = 3, choppy = 2, flammable=1},
+	groups = {crumbly = 2, cracky = 3, choppy = 2, flammable=1},
 	sounds = default.node_sound_dirt_defaults(),
 })
 
@@ -137,15 +146,15 @@ minetest.register_node('earthbuild:junglewood_supported_rammed_earth', {
 	description = 'Jungle Wood Supported Rammed Earth',
 	drawtype = "normal",
 	tiles = {
-		"earthbuild_rammed_earth.png", 
-		"default_junglewood.png", 
+		"earthbuild_rammed_earth.png",
+		"default_junglewood.png",
 		"earthbuild_junglewood_supported_rammed_earth.png",
 		"earthbuild_junglewood_supported_rammed_earth.png",
 		"earthbuild_junglewood_supported_rammed_earth.png",
 		"earthbuild_junglewood_supported_rammed_earth.png"
 },
 	paramtype = "light",
-	groups = {crumbly = 1, cracky = 3, choppy = 2, flammable=1},
+	groups = {crumbly = 2, cracky = 3, choppy = 2, flammable=1},
 	sounds = default.node_sound_dirt_defaults(),
 })
 
@@ -167,15 +176,15 @@ minetest.register_node('earthbuild:pine_wood_supported_rammed_earth', {
 	description = 'Pine Wood Supported Rammed Earth',
 	drawtype = "normal",
 	tiles = {
-		"earthbuild_rammed_earth.png", 
-		"default_pine_wood.png", 
+		"earthbuild_rammed_earth.png",
+		"default_pine_wood.png",
 		"earthbuild_pine_wood_supported_rammed_earth.png",
 		"earthbuild_pine_wood_supported_rammed_earth.png",
 		"earthbuild_pine_wood_supported_rammed_earth.png",
 		"earthbuild_pine_wood_supported_rammed_earth.png"
 },
 	paramtype = "light",
-	groups = {crumbly = 1, cracky = 3, choppy = 2, flammable=1},
+	groups = {crumbly = 2, cracky = 3, choppy = 2, flammable=1},
 	sounds = default.node_sound_dirt_defaults(),
 })
 
@@ -197,15 +206,15 @@ minetest.register_node('earthbuild:acacia_wood_supported_rammed_earth', {
 	description = 'Acacia Wood Supported Rammed Earth',
 	drawtype = "normal",
 	tiles = {
-		"earthbuild_rammed_earth.png", 
-		"default_acacia_wood.png", 
+		"earthbuild_rammed_earth.png",
+		"default_acacia_wood.png",
 		"earthbuild_acacia_wood_supported_rammed_earth.png",
 		"earthbuild_acacia_wood_supported_rammed_earth.png",
 		"earthbuild_acacia_wood_supported_rammed_earth.png",
 		"earthbuild_acacia_wood_supported_rammed_earth.png"
 },
 	paramtype = "light",
-	groups = {crumbly = 1, cracky = 3, choppy = 2, flammable=1},
+	groups = {crumbly = 2, cracky = 3, choppy = 2, flammable=1},
 	sounds = default.node_sound_dirt_defaults(),
 })
 
@@ -227,15 +236,15 @@ minetest.register_node('earthbuild:aspen_wood_supported_rammed_earth', {
 	description = 'Aspen Wood Supported Rammed Earth',
 	drawtype = "normal",
 	tiles = {
-		"earthbuild_rammed_earth.png", 
-		"default_aspen_wood.png", 
+		"earthbuild_rammed_earth.png",
+		"default_aspen_wood.png",
 		"earthbuild_aspen_wood_supported_rammed_earth.png",
 		"earthbuild_aspen_wood_supported_rammed_earth.png",
 		"earthbuild_aspen_wood_supported_rammed_earth.png",
 		"earthbuild_aspen_wood_supported_rammed_earth.png"
 },
 	paramtype = "light",
-	groups = {crumbly = 1, cracky = 3, choppy = 2, flammable=1},
+	groups = {crumbly = 2, cracky = 3, choppy = 2, flammable=1},
 	sounds = default.node_sound_dirt_defaults(),
 })
 
@@ -257,15 +266,15 @@ minetest.register_node('earthbuild:supported_cob', {
 	description = 'Supported Cob',
 	drawtype = "normal",
 	tiles = {
-		"earthbuild_cob.png", 
-		"default_wood.png", 
+		"earthbuild_cob.png",
+		"default_wood.png",
 		"earthbuild_supported_cob.png",
 		"earthbuild_supported_cob.png",
 		"earthbuild_supported_cob.png",
 		"earthbuild_supported_cob.png"
 },
 	paramtype = "light",
-	groups = {crumbly = 1, cracky = 3, choppy = 2, flammable=1},
+	groups = {crumbly = 2, cracky = 3, choppy = 2, flammable=1},
 	sounds = default.node_sound_dirt_defaults(),
 })
 
@@ -287,15 +296,15 @@ minetest.register_node('earthbuild:junglewood_supported_cob', {
 	description = 'Jungle Wood Supported Cob',
 	drawtype = "normal",
 	tiles = {
-		"earthbuild_cob.png", 
-		"default_junglewood.png", 
+		"earthbuild_cob.png",
+		"default_junglewood.png",
 		"earthbuild_junglewood_supported_cob.png",
 		"earthbuild_junglewood_supported_cob.png",
 		"earthbuild_junglewood_supported_cob.png",
 		"earthbuild_junglewood_supported_cob.png"
 },
 	paramtype = "light",
-	groups = {crumbly = 1, cracky = 3, choppy = 2, flammable=1},
+	groups = {crumbly = 2, cracky = 3, choppy = 2, flammable=1},
 	sounds = default.node_sound_dirt_defaults(),
 })
 
@@ -317,15 +326,15 @@ minetest.register_node('earthbuild:pine_wood_supported_cob', {
 	description = 'Pine Wood Supported Cob',
 	drawtype = "normal",
 	tiles = {
-		"earthbuild_cob.png", 
-		"default_pine_wood.png", 
+		"earthbuild_cob.png",
+		"default_pine_wood.png",
 		"earthbuild_pine_wood_supported_cob.png",
 		"earthbuild_pine_wood_supported_cob.png",
 		"earthbuild_pine_wood_supported_cob.png",
 		"earthbuild_pine_wood_supported_cob.png"
 },
 	paramtype = "light",
-	groups = {crumbly = 1, cracky = 3, choppy = 2, flammable=1},
+	groups = {crumbly = 2, cracky = 3, choppy = 2, flammable=1},
 	sounds = default.node_sound_dirt_defaults(),
 })
 
@@ -347,15 +356,15 @@ minetest.register_node('earthbuild:acacia_wood_supported_cob', {
 	description = 'Acacia Wood Supported Cob',
 	drawtype = "normal",
 	tiles = {
-		"earthbuild_cob.png", 
-		"default_acacia_wood.png", 
+		"earthbuild_cob.png",
+		"default_acacia_wood.png",
 		"earthbuild_acacia_wood_supported_cob.png",
 		"earthbuild_acacia_wood_supported_cob.png",
 		"earthbuild_acacia_wood_supported_cob.png",
 		"earthbuild_acacia_wood_supported_cob.png"
 },
 	paramtype = "light",
-	groups = {crumbly = 1, cracky = 3, choppy = 2, flammable=1},
+	groups = {crumbly = 2, cracky = 3, choppy = 2, flammable=1},
 	sounds = default.node_sound_dirt_defaults(),
 })
 
@@ -377,15 +386,15 @@ minetest.register_node('earthbuild:aspen_wood_supported_cob', {
 	description = 'Aspen Wood Supported Cob',
 	drawtype = "normal",
 	tiles = {
-		"earthbuild_cob.png", 
-		"default_aspen_wood.png", 
+		"earthbuild_cob.png",
+		"default_aspen_wood.png",
 		"earthbuild_aspen_wood_supported_cob.png",
 		"earthbuild_aspen_wood_supported_cob.png",
 		"earthbuild_aspen_wood_supported_cob.png",
 		"earthbuild_aspen_wood_supported_cob.png"
 },
 	paramtype = "light",
-	groups = {crumbly = 1, cracky = 3, choppy = 2, flammable=1},
+	groups = {crumbly = 2, cracky = 3, choppy = 2, flammable=1},
 	sounds = default.node_sound_dirt_defaults(),
 })
 
@@ -403,14 +412,56 @@ minetest.register_craft({
 -----------------------------------------------------------
 --WATTLE AND DAUB NODES AND CRAFTS
 
--- adds wattle_and_daub
+--adds wattle
+minetest.register_node('earthbuild:wattle', {
+	description = 'Wattle',
+	drawtype = "nodebox",
+	node_box = {
+		type = "connected",
+		fixed = {{-1/8, -1/2, -1/8, 1/8, 1/2, 1/8}},
+		-- connect_bottom =
+		connect_front = {{-1/8, -1/2, -1/2,  1/8, 1/2, -1/8}},
+		connect_left = {{-1/2, -1/2, -1/8, -1/8, 1/2,  1/8}},
+		connect_back = {{-1/8, -1/2,  1/8,  1/8, 1/2,  1/2}},
+		connect_right = {{ 1/8, -1/2, -1/8,  1/2, 1/2,  1/8}},
+	},
+	connects_to = { "group:crumbly", "group:wood", "group:tree", "group:stone", 'earthbuild:wattle'},
+	paramtype = "light",
+	tiles = {"earthbuild_wattle.png"},
+	groups = {choppy = 2, oddly_breakable_by_hand = 2, flammable = 1,},
+	sounds = default.node_sound_wood_defaults(),
+})
 
+-- adds wattle recipe
+minetest.register_craft({
+	output = 'earthbuild:wattle 8',
+	recipe = {
+		{'', '', ''},
+		{'', 'group:stick', ''},
+		{'group:stick', 'group:stick', 'group:stick'},
+	}
+})
+
+
+
+----------------------------
+-- adds wattle_and_daub
 minetest.register_node('earthbuild:wattle_and_daub', {
 	description = 'Wattle and Daub',
-	drawtype = "normal",
-	tiles = {"earthbuild_wattle_and_daub.png"},
+	drawtype = "nodebox",
+	node_box = {
+		type = "connected",
+		fixed = {{-1/4, -1/2, -1/4, 1/4, 1/2, 1/4}},
+		-- connect_bottom =
+		connect_front = {{-1/4, -1/2, -1/2,  1/4, 1/2, -1/4}},
+		connect_left = {{-1/2, -1/2, -1/4, -1/4, 1/2,  1/4}},
+		connect_back = {{-1/4, -1/2,  1/4,  1/4, 1/2,  1/2}},
+		connect_right = {{ 1/4, -1/2, -1/4,  1/2, 1/2,  1/4}},
+	},
+	connects_to = { "group:crumbly", "group:wood", "group:tree", "group:stone",'earthbuild:wattle'},
 	paramtype = "light",
-	groups = {crumbly = 1, cracky = 3, choppy = 2, flammable=1},
+	tiles = {"earthbuild_wattle_and_daub.png"},
+	groups = {crumbly = 2, cracky = 3, choppy = 2},
 	sounds = default.node_sound_dirt_defaults(),
 })
 
@@ -418,58 +469,34 @@ minetest.register_node('earthbuild:wattle_and_daub', {
 -- adds wattle_and_daub recipes
 
 minetest.register_craft({
-	output = 'earthbuild:wattle_and_daub 2',
+	output = 'earthbuild:wattle_and_daub 6',
 	recipe = {
-		{'default:dirt', '', ''},
-		{'', 'group:grass', ''},
-		{'group:stick', '', ''},
-	}
-})
-
-minetest.register_craft({
-	output = 'earthbuild:wattle_and_daub 2',
-	recipe = {
-		{'default:dirt', '', ''},
-		{'', 'group:dry_grass', ''},
-		{'group:stick', '', ''},
-	}
-})
-
-minetest.register_craft({
-	output = 'earthbuild:wattle_and_daub 2',
-	recipe = {
-		{'default:dirt', '', ''},
-		{'', 'default:junglegrass', ''},
-		{'group:stick', '', ''},
-	}
-})
-
-minetest.register_craft({
-	output = 'earthbuild:wattle_and_daub 2',
-	recipe = {
-		{'default:dirt', '', ''},
-		{'', 'default:dry_shrub', ''},
-		{'group:stick', '', ''},
-	}
-})
-
-minetest.register_craft({
-	output = 'earthbuild:wattle_and_daub 2',
-	recipe = {
-		{'default:dirt', '', ''},
-		{'', 'default:papyrus', ''},
-		{'group:stick', '', ''},
+		{'earthbuild:wattle', 'earthbuild:wattle', 'earthbuild:wattle'},
+		{'earthbuild:wattle', 'earthbuild:wattle', 'earthbuild:wattle'},
+		{'', 'earthbuild:cob', ''},
 	}
 })
 
 
+
+
+---------------------------------------------------------
+--MUD BRICK NODES AND CRAFTS
+
+minetest.register_node('earthbuild:mud_brick', {
+	description = 'Mud Brick',
+	drawtype = "normal",
+	tiles = {"earthbuild_mud_brick.png"},
+	paramtype = "light",
+	groups = {crumbly = 2, cracky = 3},
+	sounds = default.node_sound_dirt_defaults(),
+})
+
+-- craft the mud brick from cob
+-- (they are the same stuff, just arranged differently)
 minetest.register_craft({
-	output = 'earthbuild:wattle_and_daub 2',
-	recipe = {
-		{'default:dirt', '', ''},
-		{'', 'farming:straw', ''},
-		{'group:stick', '', ''},
-	}
+	output = 'earthbuild:mud_brick',
+	recipe = {{'earthbuild:cob'}}
 })
 
 -----------------------------------------------------------
@@ -483,18 +510,45 @@ minetest.register_node('earthbuild:thatch', {
 	tiles = {"earthbuild_thatch.png"},
 	paramtype = "light",
 	drop = "earthbuild:thatch",
-	groups = {snappy=3, flammable=4},
+	groups = {snappy=3, flammable=1},
 	sounds = default.node_sound_leaves_defaults(),
 })
 
 -- adds thatch recipes
 
 minetest.register_craft({
-	output = 'earthbuild:thatch 3',
+	output = 'earthbuild:thatch 6',
 	recipe = {
 		{'group:leaves', 'group:leaves', 'group:leaves'},
 		{'group:leaves', 'group:leaves', 'group:leaves'},
 		{'group:leaves', 'group:leaves', 'group:leaves'},
+	}
+})
+
+minetest.register_craft({
+	output = 'earthbuild:thatch 6',
+	recipe = {
+		{'group:grass', 'group:grass', 'group:grass'},
+		{'group:grass', 'group:grass', 'group:grass'},
+		{'group:grass', 'group:grass', 'group:grass'},
+	}
+})
+
+minetest.register_craft({
+	output = 'earthbuild:thatch 6',
+	recipe = {
+		{'group:dry_grass', 'group:dry_grass', 'group:dry_grass'},
+		{'group:dry_grass', 'group:dry_grass', 'group:dry_grass'},
+		{'group:dry_grass', 'group:dry_grass', 'group:dry_grass'},
+	}
+})
+
+minetest.register_craft({
+	output = 'earthbuild:thatch 6',
+	recipe = {
+		{'default:junglegrass', 'default:junglegrass', 'default:junglegrass'},
+		{'default:junglegrass', 'default:junglegrass', 'default:junglegrass'},
+		{'default:junglegrass', 'default:junglegrass', 'default:junglegrass'},
 	}
 })
 
@@ -503,30 +557,35 @@ minetest.register_craft({
 --STAIRS WALLS AND SLABS NODES
 
 -- Stairs and slab for rammed earth
-
 stairs.register_stair_and_slab("rammed_earth", "earthbuild:rammed_earth",
-		{crumbly = 1, cracky = 3, falling_node = 1},
+		{crumbly = 2, cracky = 3, falling_node = 1},
 		{"earthbuild_rammed_earth.png"},
 		"Rammed Earth Stair",
 		"Rammed Earth Slab",
 		default.node_sound_dirt_defaults())
 
 
-
 -- Stairs and slab for cob
-
 stairs.register_stair_and_slab("cob", "earthbuild:cob",
-		{crumbly = 1, cracky = 3, falling_node = 1},
+		{crumbly = 2, cracky = 3, falling_node = 1},
 		{"earthbuild_cob.png"},
 		"Cob Stair",
 		"Cob Slab",
 		default.node_sound_dirt_defaults())
 
 
--- Stairs and slab for thatch
+-- Stairs and slab for mud brick
+stairs.register_stair_and_slab("mud_brick", "earthbuild:mud_brick",
+		{crumbly = 2, cracky = 3},
+		{"earthbuild_mud_brick.png"},
+		"Mud Brick Stair",
+		"Mud Brick Slab",
+		default.node_sound_dirt_defaults())
 
+
+-- Stairs and slab for thatch
 stairs.register_stair_and_slab("thatch", "earthbuild:thatch",
-		{snappy=3, flammable=4},
+		{snappy=3, flammable=1},
 		{"earthbuild_thatch.png"},
 		"Thatch Stair",
 		"Thatch Slab",
@@ -534,10 +593,6 @@ stairs.register_stair_and_slab("thatch", "earthbuild:thatch",
 
 
 
--- Wattle and Daub walls
-
-walls.register("earthbuild:wattle_and_daub_wall", "Wattle and Daub Wall", "earthbuild_wattle_and_daub.png",
-		"earthbuild:wattle_and_daub", default.node_sound_dirt_defaults())
 
 
 ----------------------------------------------------------
@@ -549,8 +604,8 @@ minetest.register_node('earthbuild:hearth', {
 	description = 'Hearth',
 	drawtype = "normal",
 	tiles = {
-		"earthbuild_hearth_top.png", 
-		"earthbuild_cob.png", 
+		"earthbuild_hearth_top.png",
+		"earthbuild_cob.png",
 		"earthbuild_hearth_side.png",
 		"earthbuild_hearth_side.png",
 		"earthbuild_hearth_side.png",
@@ -558,13 +613,15 @@ minetest.register_node('earthbuild:hearth', {
 },
 	paramtype = "light",
 	drop = "earthbuild:hearth",
-	groups = {crumbly = 1, cracky = 3, falling_node = 1},
+	groups = {crumbly = 1, cracky = 1, falling_node = 1, oddly_breakable_by_hand = 2},
 	sounds = default.node_sound_dirt_defaults(),
 
 	on_punch = function(pos)
 		pos.y = pos.y + 1
-		minetest.add_node(pos, {name="fire:permanent_flame"})
-	end		 
+		if minetest.get_node(pos).name == "air" then
+			minetest.add_node(pos, {name="fire:permanent_flame"})
+		end
+	end
 })
 
 
@@ -601,37 +658,61 @@ minetest.register_craft({
 --------------------------------------------------------------
 --WHITEWASH NODES AND CRAFTS
 
+--------------------------------------
 -- adds whitewashed_wattle_and_daub
-
 minetest.register_node('earthbuild:whitewashed_wattle_and_daub', {
 	description = 'Whitewashed Wattle and Daub',
-	drawtype = "normal",
-	tiles = {"earthbuild_whitewashed_earth.png"},
+	drawtype = "nodebox",
+	node_box = {
+		type = "connected",
+		fixed = {{-1/4, -1/2, -1/4, 1/4, 1/2, 1/4}},
+		-- connect_bottom =
+		connect_front = {{-1/4, -1/2, -1/2,  1/4, 1/2, -1/4}},
+		connect_left = {{-1/2, -1/2, -1/4, -1/4, 1/2,  1/4}},
+		connect_back = {{-1/4, -1/2,  1/4,  1/4, 1/2,  1/2}},
+		connect_right = {{ 1/4, -1/2, -1/4,  1/2, 1/2,  1/4}},
+	},
+	connects_to = { "group:crumbly", "group:wood", "group:tree", "group:stone", 'earthbuild:wattle'},
 	paramtype = "light",
-	groups = {crumbly = 1, cracky = 2, choppy = 2, flammable=1},
+	tiles = {"earthbuild_whitewashed_earth.png"},
+	groups = {crumbly = 2, cracky = 3, choppy = 2},
 	sounds = default.node_sound_dirt_defaults(),
 })
 
-
--- Whitewashed Wattle and Daub walls
-
-walls.register("earthbuild:whitewashed_wattle_and_daub_wall", "Whitewashed Wattle and Daub Wall", "earthbuild_whitewashed_earth.png",
-		"earthbuild:whitewashed_wattle_and_daub", default.node_sound_dirt_defaults())
-
-
-
--- adds whitewashed_earth recipes
-
+-- adds whitewashed_wattle_and_daub recipes
 minetest.register_craft({
-	output = 'earthbuild:whitewashed_wattle_and_daub',
+	output = 'earthbuild:whitewashed_wattle_and_daub 3',
 	recipe = {
-		{'', '', ''},
+		{'earthbuild:wattle_and_daub', '', ''},
 		{'earthbuild:wattle_and_daub', 'default:gravel', ''},
-		{'', '', ''},
+		{'earthbuild:wattle_and_daub', '', ''},
 	}
 })
 
 
+--------------------------------------
+-- adds whitewashed_mud_brick
+minetest.register_node('earthbuild:whitewashed_mud_brick', {
+	description = 'Whitewashed Mud Brick',
+	drawtype = "normal",
+	tiles = {"earthbuild_whitewashed_earth.png"},
+	paramtype = "light",
+	groups = {crumbly = 2, cracky = 3},
+	sounds = default.node_sound_dirt_defaults(),
+})
+
+
+-- adds whitewashed_mud_brick recipes
+minetest.register_craft({
+	output = 'earthbuild:whitewashed_mud_brick 3',
+	recipe = {
+		{'earthbuild:mud_brick', '', ''},
+		{'earthbuild:mud_brick', 'default:gravel', ''},
+		{'earthbuild:mud_brick', '', ''},
+	}
+})
+
+------------------------------------------
 -- adds whitewashed_earth
 
 minetest.register_node('earthbuild:whitewashed_earth', {
@@ -639,7 +720,7 @@ minetest.register_node('earthbuild:whitewashed_earth', {
 	drawtype = "normal",
 	tiles = {"earthbuild_whitewashed_earth.png"},
 	paramtype = "light",
-	groups = {crumbly = 1, cracky = 2, falling_node = 1},
+	groups = {crumbly = 2, cracky = 3, falling_node = 1},
 	sounds = default.node_sound_dirt_defaults(),
 })
 
@@ -647,20 +728,20 @@ minetest.register_node('earthbuild:whitewashed_earth', {
 -- adds whitewashed_earth recipes
 
 minetest.register_craft({
-	output = 'earthbuild:whitewashed_earth',
+	output = 'earthbuild:whitewashed_earth 3',
 	recipe = {
-		{'', '', ''},
+		{'earthbuild:cob', '', ''},
 		{'earthbuild:cob', 'default:gravel', ''},
-		{'', '', ''},
+		{'earthbuild:cob', '', ''},
 	}
 })
 
 minetest.register_craft({
-	output = 'earthbuild:whitewashed_earth',
+	output = 'earthbuild:whitewashed_earth 3',
 	recipe = {
-		{'', '', ''},
+		{'earthbuild:rammed_earth', '', ''},
 		{'earthbuild:rammed_earth', 'default:gravel', ''},
-		{'', '', ''},
+		{'earthbuild:rammed_earth', '', ''},
 	}
 })
 
@@ -672,43 +753,43 @@ minetest.register_node('earthbuild:supported_whitewashed_earth', {
 	description = 'Supported Whitewashed Earth',
 	drawtype = "normal",
 	tiles = {
-		"earthbuild_whitewashed_earth.png", 
-		"default_wood.png", 
+		"earthbuild_whitewashed_earth.png",
+		"default_wood.png",
 		"earthbuild_supported_whitewashed_earth.png",
 		"earthbuild_supported_whitewashed_earth.png",
 		"earthbuild_supported_whitewashed_earth.png",
 		"earthbuild_supported_whitewashed_earth.png"
 },
 	paramtype = "light",
-	groups = {crumbly = 1, cracky = 2, choppy = 2, flammable=1},
+	groups = {crumbly = 2, cracky = 3, choppy = 2, flammable=1},
 	sounds = default.node_sound_dirt_defaults(),
 })
 
 -- adds supported whitewashed_earth recipes
 
 minetest.register_craft({
-	output = 'earthbuild:supported_whitewashed_earth',
+	output = 'earthbuild:supported_whitewashed_earth 3',
 	recipe = {
-		{'', '', ''},
+		{'earthbuild:supported_rammed_earth', '', ''},
 		{'earthbuild:supported_rammed_earth', 'default:gravel', ''},
-		{'', '', ''},
+		{'earthbuild:supported_rammed_earth', '', ''},
 	}
 })
 
 
 minetest.register_craft({
-	output = 'earthbuild:supported_whitewashed_earth',
+	output = 'earthbuild:supported_whitewashed_earth 3',
 	recipe = {
-		{'', '', ''},
+		{'earthbuild:supported_cob', '', ''},
 		{'earthbuild:supported_cob', 'default:gravel', ''},
-		{'', '', ''},
+		{'earthbuild:supported_cob', '', ''},
 	}
 })
 
 minetest.register_craft({
 	output = 'earthbuild:supported_whitewashed_earth 3',
 	recipe = {
-		{'earthbuild:whitewashed_earth', '', ''},
+		{'earthbuild:whitewashed_earth', 'earthbuild:whitewashed_earth', 'earthbuild:whitewashed_earth'},
 		{'default:wood', '', ''},
 		{'', '', ''},
 	}
@@ -720,7 +801,7 @@ minetest.register_node('earthbuild:junglewood_supported_whitewashed_earth', {
 	description = 'Jungle Wood Supported Whitewashed Earth',
 	drawtype = "normal",
 	tiles = {
-		"earthbuild_whitewashed_earth.png", 
+		"earthbuild_whitewashed_earth.png",
 		"default_junglewood.png",
 	"earthbuild_junglewood_supported_whitewashed_earth.png",
 	"earthbuild_junglewood_supported_whitewashed_earth.png",
@@ -728,35 +809,35 @@ minetest.register_node('earthbuild:junglewood_supported_whitewashed_earth', {
 	"earthbuild_junglewood_supported_whitewashed_earth.png"
 },
 	paramtype = "light",
-	groups = {crumbly = 1, cracky = 2, choppy = 2, flammable=1},
+	groups = {crumbly = 2, cracky = 3, choppy = 2, flammable=1},
 	sounds = default.node_sound_dirt_defaults(),
 })
 
 -- adds junglewood supported whitewashed_earth recipes
 
 minetest.register_craft({
-	output = 'earthbuild:junglewood_supported_whitewashed_earth',
+	output = 'earthbuild:junglewood_supported_whitewashed_earth 3',
 	recipe = {
-		{'', '', ''},
+		{'earthbuild:junglewood_supported_rammed_earth', '', ''},
 		{'earthbuild:junglewood_supported_rammed_earth', 'default:gravel', ''},
-		{'', '', ''},
+		{'earthbuild:junglewood_supported_rammed_earth', '', ''},
 	}
 })
 
 
 minetest.register_craft({
-	output = 'earthbuild:junglewood_supported_whitewashed_earth',
+	output = 'earthbuild:junglewood_supported_whitewashed_earth 3',
 	recipe = {
-		{'', '', ''},
+		{'earthbuild:junglewood_supported_cob', '', ''},
 		{'earthbuild:junglewood_supported_cob', 'default:gravel', ''},
-		{'', '', ''},
+		{'earthbuild:junglewood_supported_cob', '', ''},
 	}
 })
 
 minetest.register_craft({
 	output = 'earthbuild:junglewood_supported_whitewashed_earth 3',
 	recipe = {
-		{'earthbuild:whitewashed_earth', '', ''},
+		{'earthbuild:whitewashed_earth', 'earthbuild:whitewashed_earth', 'earthbuild:whitewashed_earth'},
 		{'default:junglewood', '', ''},
 		{'', '', ''},
 	}
@@ -770,15 +851,15 @@ minetest.register_node('earthbuild:pine_wood_supported_whitewashed_earth', {
 	description = 'Pine Wood Supported Whitewashed Earth',
 	drawtype = "normal",
 	tiles = {
-		"earthbuild_whitewashed_earth.png", 
-		"default_pine_wood.png", 
+		"earthbuild_whitewashed_earth.png",
+		"default_pine_wood.png",
 	"earthbuild_pine_wood_supported_whitewashed_earth.png",
 	"earthbuild_pine_wood_supported_whitewashed_earth.png",
 	"earthbuild_pine_wood_supported_whitewashed_earth.png",
 	"earthbuild_pine_wood_supported_whitewashed_earth.png"
 },
 	paramtype = "light",
-	groups = {crumbly = 1, cracky = 2, choppy = 2, flammable=1},
+	groups = {crumbly = 2, cracky = 3, choppy = 2, flammable=1},
 	sounds = default.node_sound_dirt_defaults(),
 })
 
@@ -786,28 +867,28 @@ minetest.register_node('earthbuild:pine_wood_supported_whitewashed_earth', {
 -- adds pine wood supported whitewashed_earth recipes
 
 minetest.register_craft({
-	output = 'earthbuild:pine_wood_supported_whitewashed_earth',
+	output = 'earthbuild:pine_wood_supported_whitewashed_earth 3',
 	recipe = {
-		{'', '', ''},
+		{'earthbuild:pine_wood_supported_rammed_earth', '', ''},
 		{'earthbuild:pine_wood_supported_rammed_earth', 'default:gravel', ''},
-		{'', '', ''},
+		{'earthbuild:pine_wood_supported_rammed_earth', '', ''},
 	}
 })
 
 
 minetest.register_craft({
-	output = 'earthbuild:pine_wood_supported_whitewashed_earth',
+	output = 'earthbuild:pine_wood_supported_whitewashed_earth 3',
 	recipe = {
-		{'', '', ''},
+		{'earthbuild:pine_wood_supported_cob', '', ''},
 		{'earthbuild:pine_wood_supported_cob', 'default:gravel', ''},
-		{'', '', ''},
+		{'earthbuild:pine_wood_supported_cob', '', ''},
 	}
 })
 
 minetest.register_craft({
 	output = 'earthbuild:pine_wood_supported_whitewashed_earth 3',
 	recipe = {
-		{'earthbuild:whitewashed_earth', '', ''},
+		{'earthbuild:whitewashed_earth', 'earthbuild:whitewashed_earth', 'earthbuild:whitewashed_earth'},
 		{'default:pine_wood', '', ''},
 		{'', '', ''},
 	}
@@ -820,43 +901,43 @@ minetest.register_node('earthbuild:acacia_wood_supported_whitewashed_earth', {
 	description = 'Acacia Wood Supported Whitewashed Earth',
 	drawtype = "normal",
 	tiles = {
-		"earthbuild_whitewashed_earth.png", 
-		"default_acacia_wood.png", 
+		"earthbuild_whitewashed_earth.png",
+		"default_acacia_wood.png",
 	"earthbuild_acacia_wood_supported_whitewashed_earth.png",
 	"earthbuild_acacia_wood_supported_whitewashed_earth.png",
 	"earthbuild_acacia_wood_supported_whitewashed_earth.png",
 	"earthbuild_acacia_wood_supported_whitewashed_earth.png"
 },
 	paramtype = "light",
-	groups = {crumbly = 1, cracky = 2, choppy = 2, flammable=1},
+	groups = {crumbly = 2, cracky = 3, choppy = 2, flammable=1},
 	sounds = default.node_sound_dirt_defaults(),
 })
 
 -- adds acacia wood supported whitewashed_earth recipes
 
 minetest.register_craft({
-	output = 'earthbuild:acacia_wood_supported_whitewashed_earth',
+	output = 'earthbuild:acacia_wood_supported_whitewashed_earth 3',
 	recipe = {
-		{'', '', ''},
+		{'earthbuild:acacia_wood_supported_rammed_earth', '', ''},
 		{'earthbuild:acacia_wood_supported_rammed_earth', 'default:gravel', ''},
-		{'', '', ''},
+		{'earthbuild:acacia_wood_supported_rammed_earth', '', ''},
 	}
 })
 
 
 minetest.register_craft({
-	output = 'earthbuild:acacia_wood_supported_whitewashed_earth',
+	output = 'earthbuild:acacia_wood_supported_whitewashed_earth 3',
 	recipe = {
-		{'', '', ''},
+		{'earthbuild:acacia_wood_supported_cob', '', ''},
 		{'earthbuild:acacia_wood_supported_cob', 'default:gravel', ''},
-		{'', '', ''},
+		{'earthbuild:acacia_wood_supported_cob', '', ''},
 	}
 })
 
 minetest.register_craft({
 	output = 'earthbuild:acacia_wood_supported_whitewashed_earth 3',
 	recipe = {
-		{'earthbuild:whitewashed_earth', '', ''},
+		{'earthbuild:whitewashed_earth', 'earthbuild:whitewashed_earth', 'earthbuild:whitewashed_earth'},
 		{'default:acacia_wood', '', ''},
 		{'', '', ''},
 	}
@@ -869,43 +950,43 @@ minetest.register_node('earthbuild:aspen_wood_supported_whitewashed_earth', {
 	description = 'Aspen Wood Supported Whitewashed Earth',
 	drawtype = "normal",
 	tiles = {
-		"earthbuild_whitewashed_earth.png", 
-		"default_aspen_wood.png", 
+		"earthbuild_whitewashed_earth.png",
+		"default_aspen_wood.png",
 	"earthbuild_aspen_wood_supported_whitewashed_earth.png",
 	"earthbuild_aspen_wood_supported_whitewashed_earth.png",
 	"earthbuild_aspen_wood_supported_whitewashed_earth.png",
 	"earthbuild_aspen_wood_supported_whitewashed_earth.png"
 },
 	paramtype = "light",
-	groups = {crumbly = 1, cracky = 2, choppy = 2, flammable=1},
+	groups = {crumbly = 2, cracky = 3, choppy = 2, flammable=1},
 	sounds = default.node_sound_dirt_defaults(),
 })
 
 -- adds aspen wood supported whitewashed_earth recipes
 
 minetest.register_craft({
-	output = 'earthbuild:aspen_wood_supported_whitewashed_earth',
+	output = 'earthbuild:aspen_wood_supported_whitewashed_earth 3',
 	recipe = {
-		{'', '', ''},
+		{'earthbuild:aspen_wood_supported_rammed_earth', '', ''},
 		{'earthbuild:aspen_wood_supported_rammed_earth', 'default:gravel', ''},
-		{'', '', ''},
+		{'earthbuild:aspen_wood_supported_rammed_earth', '', ''},
 	}
 })
 
 
 minetest.register_craft({
-	output = 'earthbuild:aspen_wood_supported_whitewashed_earth',
+	output = 'earthbuild:aspen_wood_supported_whitewashed_earth 3',
 	recipe = {
-		{'', '', ''},
+		{'earthbuild:aspen_wood_supported_cob', '', ''},
 		{'earthbuild:aspen_wood_supported_cob', 'default:gravel', ''},
-		{'', '', ''},
+		{'earthbuild:aspen_wood_supported_cob', '', ''},
 	}
 })
 
 minetest.register_craft({
 	output = 'earthbuild:aspen_wood_supported_whitewashed_earth 3',
 	recipe = {
-		{'earthbuild:whitewashed_earth', '', ''},
+		{'earthbuild:whitewashed_earth', 'earthbuild:whitewashed_earth', 'earthbuild:whitewashed_earth'},
 		{'default:aspen_wood', '', ''},
 		{'', '', ''},
 	}
@@ -914,7 +995,7 @@ minetest.register_craft({
 -- Stairs and slab for whitewashed_earth
 
 stairs.register_stair_and_slab("whitewashed_earth", "earthbuild:whitewashed_earth",
-		{crumbly = 1, cracky = 2, falling_node = 1},
+		{crumbly = 2, cracky = 3, falling_node = 1},
 		{"earthbuild_whitewashed_earth.png"},
 		"Whitewashed Earth Stair",
 		"Whitewashed Earth Slab",
@@ -984,3 +1065,35 @@ minetest.register_craft({
 })
 
 
+----------------------------------------------
+--Burnables
+
+minetest.register_craft({
+	type = "fuel",
+	recipe = "earthbuild:thatch",
+	burntime = 9,
+})
+
+
+minetest.register_craft({
+	type = "fuel",
+	recipe = "earthbuild:wattle",
+	burntime = 3,
+})
+
+
+---------------------------------------------------
+--old
+
+-- Wattle and Daub walls
+--[[REACTIVATE if need compatibility with old maps!!!
+walls.register("earthbuild:wattle_and_daub_wall", "Wattle and Daub Wall", "earthbuild_wattle_and_daub.png",
+		"earthbuild:wattle_and_daub", default.node_sound_dirt_defaults())
+]]
+
+
+--[[REACTIVATE this if you need to restore compatibility with old maps!!!
+-- Whitewashed Wattle and Daub walls
+walls.register("earthbuild:whitewashed_wattle_and_daub_wall", "Whitewashed Wattle and Daub Wall", "earthbuild_whitewashed_earth.png",
+		"earthbuild:whitewashed_wattle_and_daub", default.node_sound_dirt_defaults())
+		]]
