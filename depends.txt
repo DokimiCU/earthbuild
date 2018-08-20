@@ -1,0 +1,6 @@
+default
+stairs
+walls
+fire
+beds
+doors
