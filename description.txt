@@ -1,7 +1,0 @@
-Earthbuild
-
-by Dokimi
-
-Adds traditional dirt and vegetation based construction methods and technologies, which do not require the use of stone or mining.
-
-Aims to reflect building styles that have been in use since neolithic times, and are still common in areas with little stone or resources.
