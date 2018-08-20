@@ -3,3 +3,4 @@ stairs
 walls
 fire
 beds
+doors

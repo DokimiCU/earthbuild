@@ -204,7 +204,7 @@ register_liquid(
 	"default:lava_flowing",
 	"earthbuild:clay_pot_lava",
 	"earthbuild_clay_pot_lava.png",
-	"Lava Bucket"
+	"Clay Pot Lava"
 )
 
 --Register lava as a fuel source
@@ -239,4 +239,5 @@ minetest.register_craft({
 	type = "cooking",
 	output = "earthbuild:clay_pot",
 	recipe = "earthbuild:unfired_clay_pot",
+	cooktime = 3,
 })
