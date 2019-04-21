@@ -1,6 +1,6 @@
 # Earthbuild, by Dokimi
 
-Current version: 1.0
+Current version: 1.0.1
 
 A mod for minetest that adds traditional dirt and vegetation based construction methods and technologies, which do not require the use of quarrying or mining.
 
@@ -75,3 +75,6 @@ Textures are licensed under CC BY-SA 3.0 Unported.
 - Degradation mechanism for earthen blocks
 - Numerous minor additions and adjustments
 
+# 1.0.1
+- Fix crashing bug with dirt compactor and turf cutter
+- Add mod.conf file
