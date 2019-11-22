@@ -71,7 +71,8 @@ minetest.register_craft({
 	}
 })
 
-
+--[[
+--conflicts with default paper  :-(
 minetest.register_craft({
 	output = 'earthbuild:woven_mat',
 	recipe = {
@@ -80,7 +81,7 @@ minetest.register_craft({
 		{'default:papyrus', 'default:papyrus', 'default:papyrus'},
 	}
 })
-
+]]
 
 
 --Burn it
