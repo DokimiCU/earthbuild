@@ -1,4 +1,28 @@
 -------------------------------------------------------------
+local function is_owner(pos, name)
+	local owner = minetest.get_meta(pos):get_string("owner")
+	if owner == "" or owner == name or minetest.check_player_privs(name, "protection_bypass") then
+		return true
+	end
+	return false
+end
+
+---------------------------------------------------
+local function get_storage_formspec(pos)
+	local formspec ="size[8,7]" ..
+		default.gui_bg ..
+		default.gui_bg_img ..
+		default.gui_slots ..
+		"list[current_name;main;0,0.3;8,2]" ..
+		"list[current_player;main;0,2.85;8,1]" ..
+		"list[current_player;main;0,4.08;8,3;8]" ..
+		"listring[current_name;main]" ..
+		"listring[current_player;main]"
+	return formspec
+end
+
+
+-------------------------------------------------------------
 --Storage Pot
 
 --Unfired pot (not usuable... must be cooked)
@@ -15,54 +39,68 @@ minetest.register_craftitem("earthbuild:storage_pot_unfired", {
 --Finished Pot
 minetest.register_node("earthbuild:storage_pot", {
 	description = "Clay Storage Pot",
+	tiles = {"earthbuild_storage_pot_top.png",
+		"earthbuild_storage_pot_top.png",
+		"earthbuild_storage_pot.png",
+		"earthbuild_storage_pot.png",
+		"earthbuild_storage_pot.png"},
 	drawtype = "nodebox",
-	tiles = {"earthbuild_storage_pot_top.png", "earthbuild_storage_pot_top.png", "earthbuild_storage_pot.png","earthbuild_storage_pot.png", "earthbuild_storage_pot.png", "earthbuild_storage_pot.png"},
+	paramtype = "light",
 	node_box = {
 		type = "fixed",
-		fixed = {-0.4, -0.5, -0.4, 0.4, 0.5, 0.4},
-	},
-	selection_box = {
-		type = "fixed",
-		fixed = {-0.4, -0.5, -0.4, 0.4, 0.5, 0.4},
-	},
-	groups = {oddly_breakable_by_hand = 3,},
+		fixed = {
+				{-0.375, -0.5, -0.375, 0.375, -0.375, 0.375},
+				{-0.375, 0.375, -0.375, 0.375, 0.5, 0.375},
+				{-0.4375, -0.375, -0.4375, 0.4375, -0.25, 0.4375},
+				{-0.4375, 0.25, -0.4375, 0.4375, 0.375, 0.4375},
+				{-0.5, -0.25, -0.5, 0.5, 0.25, 0.5},
+			}
+		},
+	groups = {oddly_breakable_by_hand = 3},
 	sounds = default.node_sound_stone_defaults(),
-	paramtype = "light",
+
 	on_construct = function(pos)
 		local meta = minetest.get_meta(pos)
-		meta:set_string("formspec",
-				"size[8,9]"..
-				 default.gui_bg ..
-				 default.gui_bg_img ..
-				 default.gui_slots ..
-				"list[current_name;main;0,0;8,5;]"..
-				"list[current_player;main;0,5;8,4;]")
-		meta:set_string("infotext", "Storage Pot")
+		meta:set_string("formspec", get_storage_formspec(pos, 8, 2))
 		local inv = meta:get_inventory()
 		inv:set_size("main", 8*3)
+		meta:set_string("infotext", "Clay Storage Pot")
 	end,
 
-	can_dig = function(pos,player)
-		local meta = minetest.get_meta(pos);
-		local inv = meta:get_inventory()
-		return inv:is_empty("main")
+	can_dig = function(pos, player)
+		local inv = minetest.get_meta(pos):get_inventory()
+		local name = ""
+		if player then
+			name = player:get_player_name()
+		end
+		return is_owner(pos, name) and inv:is_empty("main")
 	end,
 
-	on_metadata_inventory_move = function(pos, from_list, from_index, to_list, to_index, count, player)
-		minetest.log("action", "@1 moves stuff in pot at @2", player:get_player_name(), minetest.pos_to_string(pos))
+	allow_metadata_inventory_move = function(pos, from_list, from_index, to_list, to_index, count, player)
+		if is_owner(pos, player:get_player_name()) then
+			return count
+		end
+		return 0
 	end,
 
-	on_metadata_inventory_put = function(pos, listname, index, stack, player)
-		minetest.log("action", "@1 moves stuff to pot at @2", player:get_player_name(), minetest.pos_to_string(pos))
+	allow_metadata_inventory_put = function(pos, listname, index, stack, player)
+		if is_owner(pos, player:get_player_name())
+		and not string.match(stack:get_name(), "backpacks:") then
+			return stack:get_count()
+		end
+		return 0
 	end,
 
-	on_metadata_inventory_take = function(pos, listname, index, stack, player)
-		minetest.log("action", "@1 takes stuff from pot at @2", player:get_player_name(), minetest.pos_to_string(pos))
+	allow_metadata_inventory_take = function(pos, listname, index, stack, player)
+		if is_owner(pos, player:get_player_name()) then
+			return stack:get_count()
+		end
+		return 0
 	end,
 
+	on_blast = function(pos)
+	end,
 })
-
-
 
 
 
@@ -93,72 +131,78 @@ minetest.register_craft({
 	type = "cooking",
 	output = "earthbuild:storage_pot",
 	recipe = "earthbuild:storage_pot_unfired",
-	cooktime = 3,
+	cooktime = 10,
 })
 
 
 
 --------------------------------------------
 --Basket
-
---Basket
 minetest.register_node("earthbuild:basket", {
 	description = "Basket",
-	drawtype = "nodebox",
-	tiles = {
+	tiles = {"earthbuild_basket_top.png",
 		"earthbuild_basket_top.png",
-		"earthbuild_basket_top.png",
-		"earthbuild_basket.png",
 		"earthbuild_basket.png",
 		"earthbuild_basket.png",
 		"earthbuild_basket.png"},
+	drawtype = "nodebox",
+	paramtype = "light",
 	node_box = {
 		type = "fixed",
-		fixed = {-0.35, -0.5, -0.35, 0.35, 0.5, 0.35},
+		fixed = {
+			{-0.25, 0.375, -0.25, 0.25, 0.5, 0.25},
+			{-0.375, -0.25, -0.375, 0.375, 0.3125, 0.375},
+			{-0.3125, -0.375, -0.3125, 0.3125, -0.25, 0.3125},
+			{-0.25, -0.5, -0.25, 0.25, -0.375, 0.25},
+			{-0.3125, 0.3125, -0.3125, 0.3125, 0.375, 0.3125},
+		}
 	},
-	selection_box = {
-		type = "fixed",
-		fixed = {-0.35, -0.5, -0.35, 0.35, 0.5, 0.35},
-	},
-	groups = {snappy = 3, flammable = 3, oddly_breakable_by_hand = 3,},
-	sounds = default.node_sound_stone_defaults(),
-	paramtype = "light",
+
+	groups = {oddly_breakable_by_hand = 3},
+	sounds = default.node_sound_leaves_defaults(),
+
 	on_construct = function(pos)
 		local meta = minetest.get_meta(pos)
-		meta:set_string("formspec",
-				"size[8,9]"..
-				 default.gui_bg ..
-				 default.gui_bg_img ..
-				 default.gui_slots ..
-				"list[current_name;main;0,0;8,5;]"..
-				"list[current_player;main;0,5;8,4;]")
-		meta:set_string("infotext", "Basket")
+		meta:set_string("formspec", get_storage_formspec(pos, 8, 2))
 		local inv = meta:get_inventory()
 		inv:set_size("main", 8*2)
+		meta:set_string("infotext", "Basket")
 	end,
 
-	can_dig = function(pos,player)
-		local meta = minetest.get_meta(pos);
-		local inv = meta:get_inventory()
-		return inv:is_empty("main")
+	can_dig = function(pos, player)
+		local inv = minetest.get_meta(pos):get_inventory()
+		local name = ""
+		if player then
+			name = player:get_player_name()
+		end
+		return is_owner(pos, name) and inv:is_empty("main")
 	end,
 
-	on_metadata_inventory_move = function(pos, from_list, from_index, to_list, to_index, count, player)
-		minetest.log("action", "@1 moves stuff in Basket at @2", player:get_player_name(), minetest.pos_to_string(pos))
+	allow_metadata_inventory_move = function(pos, from_list, from_index, to_list, to_index, count, player)
+		if is_owner(pos, player:get_player_name()) then
+			return count
+		end
+		return 0
 	end,
 
-	on_metadata_inventory_put = function(pos, listname, index, stack, player)
-		minetest.log("action", "@1 moves stuff to Basket at @2", player:get_player_name(), minetest.pos_to_string(pos))
+	allow_metadata_inventory_put = function(pos, listname, index, stack, player)
+		if is_owner(pos, player:get_player_name())
+		and not string.match(stack:get_name(), "backpacks:") then
+			return stack:get_count()
+		end
+		return 0
 	end,
 
-	on_metadata_inventory_take = function(pos, listname, index, stack, player)
-		minetest.log("action", "@1 takes stuff from Basket at @2", player:get_player_name(), minetest.pos_to_string(pos))
+	allow_metadata_inventory_take = function(pos, listname, index, stack, player)
+		if is_owner(pos, player:get_player_name()) then
+			return stack:get_count()
+		end
+		return 0
 	end,
 
+	on_blast = function(pos)
+	end,
 })
-
-
-
 
 
 --Craft basket
@@ -213,36 +257,47 @@ minetest.register_node("earthbuild:bottlegourd_container", {
 	},
 	groups = {dig_immediate = 3,},
 	sounds = default.node_sound_wood_defaults(),
+
 	on_construct = function(pos)
 		local meta = minetest.get_meta(pos)
-		meta:set_string("formspec",
-				"size[8,9]"..
-				 default.gui_bg ..
-				 default.gui_bg_img ..
-				 default.gui_slots ..
-				"list[current_name;main;0,0;8,5;]"..
-				"list[current_player;main;0,5;8,4;]")
-		meta:set_string("infotext", "Bottle Gourd")
+		meta:set_string("formspec", get_storage_formspec(pos, 8, 2))
 		local inv = meta:get_inventory()
 		inv:set_size("main", 1*1)
+		meta:set_string("infotext", "Bottle Gourd")
 	end,
 
-	can_dig = function(pos,player)
-		local meta = minetest.get_meta(pos);
-		local inv = meta:get_inventory()
-		return inv:is_empty("main")
+	can_dig = function(pos, player)
+		local inv = minetest.get_meta(pos):get_inventory()
+		local name = ""
+		if player then
+			name = player:get_player_name()
+		end
+		return is_owner(pos, name) and inv:is_empty("main")
 	end,
 
-	on_metadata_inventory_move = function(pos, from_list, from_index, to_list, to_index, count, player)
-		minetest.log("action", "@1 moves stuff in Gourd at @2", player:get_player_name(), minetest.pos_to_string(pos))
+	allow_metadata_inventory_move = function(pos, from_list, from_index, to_list, to_index, count, player)
+		if is_owner(pos, player:get_player_name()) then
+			return count
+		end
+		return 0
 	end,
 
-	on_metadata_inventory_put = function(pos, listname, index, stack, player)
-		minetest.log("action", "@1 moves stuff to Gourd at @2", player:get_player_name(), minetest.pos_to_string(pos))
+	allow_metadata_inventory_put = function(pos, listname, index, stack, player)
+		if is_owner(pos, player:get_player_name())
+		and not string.match(stack:get_name(), "backpacks:") then
+			return stack:get_count()
+		end
+		return 0
 	end,
 
-	on_metadata_inventory_take = function(pos, listname, index, stack, player)
-		minetest.log("action", "@1 takes stuff from Gourd at @2", player:get_player_name(), minetest.pos_to_string(pos))
+	allow_metadata_inventory_take = function(pos, listname, index, stack, player)
+		if is_owner(pos, player:get_player_name()) then
+			return stack:get_count()
+		end
+		return 0
+	end,
+
+	on_blast = function(pos)
 	end,
 })
 
