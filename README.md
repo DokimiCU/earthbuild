@@ -32,7 +32,7 @@ Compacted dirt can only be made using the dirt compactor. This is to simulate ba
 
 # License:
 
-Code is licensed under GNU LGPLv2+.
+Code is licensed under GNU GPLv3.
 
 Textures are licensed under CC BY-SA 3.0 Unported.
 
