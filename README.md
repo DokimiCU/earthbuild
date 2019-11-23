@@ -82,4 +82,4 @@ Textures are licensed under CC BY-SA 3.0 Unported.
 # 1.0.2
 - Nodeboxes and better meta handling for storage
 - Remove conflicting papyrus weaving recipe
--dry dirt for rammed earth recipe
+- dry dirt for rammed earth recipe
