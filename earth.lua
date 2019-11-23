@@ -136,6 +136,16 @@ minetest.register_craft({
 	}
 })
 
+--only for rammed as cob is typically made with water
+minetest.register_craft({
+	output = 'earthbuild:rammed_earth 1',
+	recipe = {
+		{'default:dry_dirt'},
+		{'default:dry_dirt'},
+		{'default:dry_dirt'},
+	}
+})
+
 
 ------------------------------------------
 --Cob
