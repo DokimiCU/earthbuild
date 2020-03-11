@@ -1,6 +1,6 @@
 # Earthbuild, by Dokimi
 
-Current version: 1.0.2
+Current version: 1.0.2.1
 
 A mod for minetest that adds traditional dirt and vegetation based construction methods and technologies, which do not require the use of quarrying or mining.
 
@@ -83,3 +83,6 @@ Textures are licensed under CC BY-SA 3.0 Unported.
 - Nodeboxes and better meta handling for storage
 - Remove conflicting papyrus weaving recipe
 - dry dirt for rammed earth recipe
+
+# 1.0.2.1
+- Patch conflict between mods from overriding jungle grass drops (by ThorfinnS)
