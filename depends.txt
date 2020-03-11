@@ -4,4 +4,3 @@ walls
 fire
 beds
 doors
-bonemeal?
