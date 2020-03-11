@@ -122,8 +122,9 @@ add_drop("default:junglegrass", {
 
 minetest.log(dump(minetest.registered_nodes["default:junglegrass"].drop))
 
+--[[
 minetest.log("Adding bonemeal support for ")
 bonemeal:add_crop({
 	{"earthbuild:bottlegourd_", 8, "earthbuild:seed_bottlegourd"}
 })
-
+]]
